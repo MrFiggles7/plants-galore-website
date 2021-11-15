@@ -1,0 +1,25 @@
+.v-application{
+  font-family: 'Zen Antique' !important;
+}
+body{
+  font-family: 'Zen Antique' !important;
+}
+
+.text{
+  font-family: 'Zen Antique' !important;
+}
+
+#app{
+  font-family: 'Zen Antique' !important;
+}
+
+.activeTabItem{
+
+}
+
+
+.v-window-x-transition-enter-active, .v-window-x-transition-leave-active, .v-window-x-reverse-transition-enter-active, .v-window-x-reverse-transition-leave-active, .v-window-y-transition-enter-active, .v-window-y-transition-leave-active, .v-window-y-reverse-transition-enter-active, .v-window-y-reverse-transition-leave-active{
+  .v-image{
+    visibility: hidden;
+  }
+}
