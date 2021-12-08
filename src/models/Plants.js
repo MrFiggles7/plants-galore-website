@@ -6,16 +6,17 @@ function Plant(title, description, image, light){
     //     "cacti" : "Cacti / Succulent"
     // };
 
-        // var LIGHT = {
-        //     "low" : 'Low or Artificial',
-        //     "medium" : 'Low to Bright Indirect',
-        //     "high" : 'Bright Indirect to Direct'
-        // };
+        var LIGHT = {
+            "low" : 'Low or Artificial',
+            "medium" : 'Low to Bright Indirect',
+            "high" : 'Bright Indirect to Direct'
+        };
 
         this.title = title;
         this.description = description;
         this.image = image;
-        this.light = light;
+        this.light = LIGHT[light] || light;
+        this.lightList = LIGHT;
 
 
 }
@@ -31,48 +32,51 @@ class IndoorPlant extends Plant{
                 difficulty, petFriendly, size){
         super(title, description, image, light, category);
 
-        // var SOIL = {"potted" : 'Potting Soil', "cacti" : 'Cacti / Succulent Soil'};
-        // var DIFFICULTY = {
-        //     "minimal" : {
-        //         short : "No-fuss",
-        //         long: 'No-fuss - Carefree'
-        //     },
-        //     "easy" : {
-        //         short: "Easy",
-        //         long: "Easy - Relatively low Maintenance"
-        //     },
-        //     "moderate" : {
-        //         short : "Moderate",
-        //         long: "Moderate - Needs a bit of extra care"
-        //     }
-        // };
-        // var SIZE = {
-        //     "xs" : {
-        //         short: "Xtra Small",
-        //         long : 'Xtra Small - 5"-12" tall'
-        //     },
-        //     "sm" : {
-        //         short : "Small",
-        //         long : 'Small - 14"-16" tall',
-        //     },
-        //     "md" : {
-        //         short: "Medium",
-        //         long : 'Medium - 16"-24" tall'
-        //     },
-        //     "lg" : {
-        //         short : "Large",
-        //         long: 'Large - 32"40" tall'
-        //     },
-        //     "xl" : {
-        //         short: "Xtra Large",
-        //         long: 'Xtra Large - 44"-58" tall'
-        //     }
-        // };
+        var SOIL = {"potted" : 'Potting Soil', "cacti" : 'Cacti / Succulent Soil'};
+        var DIFFICULTY = {
+            "minimal" : {
+                short : "No-fuss",
+                long: 'No-fuss - Carefree'
+            },
+            "easy" : {
+                short: "Easy",
+                long: "Easy - Relatively low Maintenance"
+            },
+            "moderate" : {
+                short : "Moderate",
+                long: "Moderate - Needs a bit of extra care"
+            }
+        };
+        var SIZE = {
+            "xs" : {
+                short: "Xtra Small",
+                long : 'Xtra Small - 5"-12" tall'
+            },
+            "sm" : {
+                short : "Small",
+                long : 'Small - 14"-16" tall',
+            },
+            "md" : {
+                short: "Medium",
+                long : 'Medium - 16"-24" tall'
+            },
+            "lg" : {
+                short : "Large",
+                long: 'Large - 32"40" tall'
+            },
+            "xl" : {
+                short: "Xtra Large",
+                long: 'Xtra Large - 44"-58" tall'
+            }
+        };
 
-        this.soil = soil;
-        this.difficulty = difficulty;
+        this.soil = SOIL[soil] || soil;
+        this.soilList = SOIL;
+        this.difficultyList = DIFFICULTY;
+        this.sizeList = SIZE;
+        this.difficulty = DIFFICULTY[difficulty] || difficulty;
         this.petFriendly = petFriendly;
-        this.size = size;
+        this.size = SIZE[size] || size;
     }
 }
 

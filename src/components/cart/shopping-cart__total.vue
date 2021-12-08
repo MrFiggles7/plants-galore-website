@@ -8,7 +8,7 @@
                 v-for="item in list"
                 :key="item.id"
         >
-            {{item.title}} -- {{'QTY: ' + item.qty + ' x $' + item.price + ' = $' + (item.qty * item.price).toFixed(2)}}
+            {{item.title}} -- <br> {{'QTY: ' + item.qty + ' x $' + item.price + ' = $' + (item.qty * item.price).toFixed(2)}}
         </v-card-text>
         <v-card-subtitle class="text-h4">
             {{'Subtotal: $' + subTotal.toFixed(2)}}
@@ -19,7 +19,7 @@
         <v-card-text class="text-lg-h2 text-md-h3 text-sm-h4 text-h2" style="color: black">
             Total: {{'$' + total.toFixed(2)}}
         </v-card-text>
-        <v-btn x-large color="#356859" class="white--text ml-5 mt-5">Checkout</v-btn>
+        <v-btn to="/payment" x-large color="#356859" class="white--text ml-5 mt-5">Continue to Payment</v-btn>
     </v-card>
 </template>
 
@@ -29,7 +29,7 @@
 
         props: {
             list: {
-                type: Array
+                type: Array,
             },
         },
         methods: {

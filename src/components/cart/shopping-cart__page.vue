@@ -17,9 +17,7 @@
                         class="mt-0 ml-lg-5 ml-md-4 ml-sm-1 mx-2"
                         v-for="item in list"
                         :key="item.id">
-                    <shopping-cart-item :item="item" @add-me="addToShoppingCart"
-                                        @remove-me="removeFromShoppingCart"
-                                        @trash-me="trashItem"
+                    <shopping-cart-item :user="user" :item="item"
                     >
 
                     </shopping-cart-item>
@@ -48,8 +46,9 @@
 
         props: {
             list: {
-                type: Array
+                type: Array,
             },
+            user: Object,
         },
         methods: {
             addToShoppingCart: function (item) {

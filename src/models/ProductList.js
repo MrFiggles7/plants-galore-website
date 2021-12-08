@@ -1,7 +1,7 @@
 import Product from "./Product";
 import PlantFactory from "./PlantFactory";
 
-function ProductList(bag){
+function ProductList(){
     let arr = [];
     let plantFactory = new PlantFactory();
 
@@ -9,19 +9,13 @@ function ProductList(bag){
     //     arr.addItem(list[i]);
     // }
 
-    arr.addItem = function (item) {
+
+    arr.addItem = function (item, uid) {
         this.push(new Product(
             plantFactory.create(item),
+            uid,
             item.price,
             item.category,
-
-            ((collection) => function(){
-                collection.removeItem(this); // "this" refers to the LibraryItem
-            })(this),
-
-            ((collection) => function () {
-                collection.addToCart(this);
-            })(bag),
         ));
 
         return this;

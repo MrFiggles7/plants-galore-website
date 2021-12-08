@@ -6,7 +6,7 @@
                 <v-icon color="primary">
                     {{icon}}
                 </v-icon>
-                <span class="font-weight-bold ml-1">{{text}}: </span>{{response}}
+                {{conversion.convert(response).short || conversion.convert(response)}}
 
             </div>
         </v-card-text>
@@ -14,8 +14,16 @@
 </template>
 
 <script>
+    import Conversion from "../../models/Conversions";
+
     export default {
         name: "item-card__icon",
+
+        data() {
+            return{
+                conversion: new Conversion()
+            }
+        },
 
         props: {
             icon: String,

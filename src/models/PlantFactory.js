@@ -11,19 +11,19 @@ function PlantFactory(){
                 item.title || null,
                 item.description || null,
                 item.image || null,
+                item.category || null,
                 item.light || null,
                 item.soil || null,
                 item.difficulty || null,
                 item.petFriendly || false,
-                item.size || null
+                item.size || null,
             );
         }
         else if(item.category === 'outdoor'){
             return new OutdoorPlant(
                 item.title || null,
-
                 item.description || null,
-                item.image || null
+                item.image || null,
             )
         }
         else if(item.category ==='pot'){
@@ -32,7 +32,7 @@ function PlantFactory(){
                 item.description || null,
                 item.image || null,
                 item.drainage || false,
-                item.size || null
+                item.size || null,
             )
         }
         else{

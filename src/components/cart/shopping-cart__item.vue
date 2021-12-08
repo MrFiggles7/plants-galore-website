@@ -9,7 +9,7 @@
                 <v-col
                         cols="4"
                 >
-                    <v-img :src="item.image" min-height="200px" max-height="300px"></v-img>
+                    <v-img :src="image" min-height="200px" max-height="300px"></v-img>
                 </v-col>
                 <v-col
                         cols="8"
@@ -36,7 +36,7 @@
                                     dark
                                     small
                                     color="primary"
-                                    @click="removeFromShoppingCart()"
+                                    @click="user.subtractFromCart(item)"
                             >
                                 <v-icon>
                                     remove_circle_outline
@@ -48,7 +48,7 @@
                                     dark
                                     small
                                     color="primary"
-                                    @click="addToShoppingCart()"
+                                    @click="user.addToCart(item)"
                             >
                                 <v-icon>
                                     add_circle_outline
@@ -60,7 +60,7 @@
                                     dark
                                     small
                                     color="primary"
-                                    @click="trashItem()"
+                                    @click="user.deleteFromCart(item)"
                             >
                                 <v-icon>
                                     delete_outline
@@ -83,12 +83,28 @@
 </template>
 
 <script>
+    import {storageRef} from "../../models/FirebaseContext";
+
     export default {
         name: "shopping-cart__item",
 
         props: {
             item : Object,
+            user: Object,
         },
+
+        data(){
+            return{
+                image: '',
+            }
+        },
+
+        created() {
+            storageRef.child(this.item.id).getDownloadURL().then((url)=>{
+                this.image = url
+            })
+        },
+
         methods: {
             addToShoppingCart: function () {
                 this.$emit('add-me', this.item);
